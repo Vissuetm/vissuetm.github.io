@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tribu del Mundo Unido</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #22c55e;
+      --secondary: #38bdf8;
+      --bg: #020617;
+      --card: #0f172a;
+      --text: #e5e7eb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #020617, #000);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    header h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 3s infinite alternate;
+    }
+
+    header p {
+      max-width: 650px;
+      margin-top: 20px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .btn {
+      margin-top: 40px;
+      padding: 16px 40px;
+      font-size: 1rem;
+      border-radius: 50px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #000;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 0 30px rgba(34,197,94,.5);
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 60px rgba(56,189,248,.8);
+    }
+
+    section {
+      padding: 80px 10%;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      transition: transform .4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      opacity: 0.6;
+      font-size: 0.9rem;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px rgba(34,197,94,.4); }
+      to { text-shadow: 0 0 30px rgba(56,189,248,.8); }
+    }
+
+    /* Animación al hacer scroll */
+    .fade {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Tribu del Mundo Unido</h1>
+    <p>
+      Somos una comunidad global que cree en la unión, la creatividad,
+      la conciencia y el apoyo mutuo. Juntos construimos un mundo más humano.
+    </p>
+
+    <!-- LINK DE DONACIONES -->
+    <a class="btn"
+       href="https://www.paypal.com/donate/?hosted_button_id=TU_ID"
+       target="_blank">
+       Apoya la Tribu 💚
+    </a>
+  </header>
+
+  <section>
+    <div class="cards">
+      <div class="card fade">
+        <h3>🌎 Unidad Global</h3>
+        <p>
+          Personas de todos los lugares conectadas por un mismo propósito:
+          crear algo mejor para todos.
+        </p>
+      </div>
+
+      <div class="card fade">
+        <h3>🔥 Energía Creativa</h3>
+        <p>
+          Arte, tecnología, conciencia y acción se mezclan para generar impacto real.
+        </p>
+      </div>
+
+      <div class="card fade">
+        <h3>🤝 Apoyo Mutuo</h3>
+        <p>
+          Cada donación ayuda a mantener vivo este proyecto y a expandir la tribu.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 · Tribu del Mundo Unido · Todos somos uno
+  </footer>
+
+  <script>
+    // Animación al hacer scroll
+    const elements = document.querySelectorAll('.fade');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
